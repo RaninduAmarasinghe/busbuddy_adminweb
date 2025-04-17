@@ -12,7 +12,7 @@ export default function Dashboard() {
         {
             title: 'Company Management',
             description: 'View, update and maintain existing company profiles in one place.',
-            link: '/companies',
+            link: '/company/management',
             buttonText: 'Manage Companies',
         },
         {
