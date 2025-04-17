@@ -16,9 +16,9 @@ export default function Dashboard() {
             buttonText: 'Manage Companies',
         },
         {
-            title: 'Help & Support',
+            title: 'Help & Support Messages ',
             description: 'Access support tools and resolve issues for better assistance.',
-            link: '/support',
+            link: '/support/inbox',
             buttonText: 'Open Support',
         },
     ];

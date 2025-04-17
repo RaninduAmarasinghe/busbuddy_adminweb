@@ -3,6 +3,7 @@ import './App.css';
 import Dashboard from './pages/Dashboard';
 import Companyregister from './pages/Companyregister';
 import Companymanagement from './pages/Companymanagement';
+import Supportinbox from './pages/Supportinbox';
 
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
         <Route path="/" element={<Dashboard />} />
         <Route path="Company/register" element={<Companyregister />} />
         <Route path="Company/management" element={<Companymanagement />} />
+        <Route path="/support/inbox" element={<Supportinbox />} />
       </Routes>
     </Router>
   );
