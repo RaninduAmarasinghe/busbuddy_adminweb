@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 export default function Companyregister() {
-    const navigate = useNavigate();
-
     const [formData, setFormData] = useState({
         companyName: '',
         companyAddress: '',
@@ -23,7 +20,6 @@ export default function Companyregister() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // Check for empty fields
         const isEmpty = Object.values(formData).some(field => !field.trim());
         if (isEmpty) {
             setMessage({ text: 'Please fill in all fields.', type: 'error' });
@@ -49,7 +45,6 @@ export default function Companyregister() {
                 companyPassword: '',
             });
 
-            setTimeout(() => navigate('/'), 2000);
         } catch (err) {
             setMessage({ text: err.message, type: 'error' });
         }
@@ -87,7 +82,7 @@ export default function Companyregister() {
     );
 }
 
-// Reusable Input Component
+// 🔁 Reusable Input Component
 function FormInput({ label, name, value, onChange, type = 'text' }) {
     return (
         <div>
