@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { API_BASE_URL } from "../config/api";
 
 export default function Supportinbox() {
   const [messages, setMessages] = useState([]);
@@ -8,7 +9,7 @@ export default function Supportinbox() {
   useEffect(() => {
     const fetchMessages = async () => {
       try {
-        const res = await axios.get('http://localhost:8080/support/all'); // your backend endpoint
+        const res = await axios.get(`${API_BASE_URL}/support/all`); // your backend endpoint
         setMessages(res.data);
       } catch (error) {
         console.error('Error fetching messages:', error);
