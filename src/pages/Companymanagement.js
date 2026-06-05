@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { TrashIcon, PencilIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import { API_BASE_URL } from "../config/api";
 
 export default function Companymanagement() {
     const [companies, setCompanies] = useState([]);
@@ -11,7 +12,9 @@ export default function Companymanagement() {
     // Fetch all companies
     const fetchCompanies = async () => {
         try {
-            const res = await axios.get('http://localhost:8080/companies/all');
+            const res = await axios.get(
+    `${API_BASE_URL}/companies/all`
+);
             setCompanies(res.data);
         } catch (error) {
             console.error('Failed to fetch companies', error);
@@ -28,7 +31,9 @@ export default function Companymanagement() {
         if (!confirm) return;
 
         try {
-            await axios.delete(`http://localhost:8080/companies/delete/${id}`);
+            await axios.delete(
+    `${API_BASE_URL}/companies/delete/${id}`
+);
             setCompanies((prev) => prev.filter((company) => company.companyId !== id));
         } catch (error) {
             console.error('Delete failed', error);
@@ -45,7 +50,10 @@ export default function Companymanagement() {
     const handleUpdate = async (e) => {
         e.preventDefault();
         try {
-            await axios.put(`http://localhost:8080/companies/update/${editCompany.companyId}`, formData);
+            await axios.put(
+    `${API_BASE_URL}/companies/update/${editCompany.companyId}`,
+    formData
+);
             setEditCompany(null);
             fetchCompanies();
         } catch (error) {

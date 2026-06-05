@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { API_BASE_URL } from "../config/api";
 
 export default function Companyregister() {
     const [formData, setFormData] = useState({
@@ -27,7 +28,7 @@ export default function Companyregister() {
         }
 
         try {
-            const res = await fetch('http://localhost:8080/companies/add', {
+            const res = await fetch(`${API_BASE_URL}/companies/add`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData),
